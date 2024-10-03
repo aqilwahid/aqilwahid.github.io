@@ -1,0 +1,105 @@
+:root {
+  --background-color: #fafafa;
+  --text-color: #333;
+  --header-background: #fff;
+  --footer-background: #333;
+  --footer-text-color: #fff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  background: var(--header-background);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: auto;
+}
+
+header nav h1 {
+  font-size: 1.5rem;
+}
+
+header a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#profile {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.profile-img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.social-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.about {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#experience, #education, #blog {
+  max-width: 600px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.job, .education-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-list li {
+  padding: 10px 0;
+}
+
+.blog-list a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+  margin-top: 30px;
+}
