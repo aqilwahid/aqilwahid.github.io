@@ -1,21 +1,33 @@
-const themeToggle = document.getElementById('theme-toggle');
-let isDarkMode = false;
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.querySelector('.theme-toggle');
+    let isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-themeToggle.addEventListener('click', () => {
-    isDarkMode = !isDarkMode;
-    if (isDarkMode) {
-        document.documentElement.style.setProperty('--background-color', '#333');
-        document.documentElement.style.setProperty('--text-color', '#fafafa');
-        document.documentElement.style.setProperty('--header-background', '#444');
-        document.documentElement.style.setProperty('--footer-background', '#444');
-        document.documentElement.style.setProperty('--footer-text-color', '#fafafa');
-        themeToggle.textContent = '🌚';
-    } else {
-        document.documentElement.style.setProperty('--background-color', '#fafafa');
-        document.documentElement.style.setProperty('--text-color', '#333');
-        document.documentElement.style.setProperty('--header-background', '#fff');
-        document.documentElement.style.setProperty('--footer-background', '#333');
-        document.documentElement.style.setProperty('--footer-text-color', '#fff');
+    // Function to enable Dark Mode
+    function enableDarkMode() {
+        document.body.classList.add('dark-theme');
+        localStorage.setItem('darkMode', 'true');
         themeToggle.textContent = '🌞';
     }
+
+    // Function to disable Dark Mode
+    function disableDarkMode() {
+        document.body.classList.remove('dark-theme');
+        localStorage.setItem('darkMode', 'false');
+        themeToggle.textContent = '🌚';
+    }
+
+    // Check initial state
+    if (isDarkMode) {
+        enableDarkMode();
+    }
+
+    // Listen for toggle button click
+    themeToggle.addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+        if (isDarkMode) {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+    });
 });

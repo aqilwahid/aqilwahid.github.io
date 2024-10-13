@@ -1,105 +1,204 @@
 :root {
-  --background-color: #fafafa;
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --background-color: #f4f4f4;
   --text-color: #333;
   --header-background: #fff;
-  --footer-background: #333;
-  --footer-text-color: #fff;
+  --footer-background: #2c3e50;
+  --footer-text-color: #ecf0f1;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 header {
   background: var(--header-background);
-  padding: 20px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header nav {
   display: flex;
   justify-content: space-between;
-  max-width: 1000px;
-  margin: auto;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-header nav h1 {
+header h1 {
   font-size: 1.5rem;
+  margin: 0;
+  color: var(--secondary-color);
 }
 
-header a {
-  color: var(--text-color);
+.nav-links a, .theme-toggle {
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: bold;
+  margin-left: 1rem;
 }
 
 .theme-toggle {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2, h3, h4 {
+  color: var(--secondary-color);
 }
 
 #profile {
   text-align: center;
-  padding: 50px 20px;
 }
 
 .profile-img {
-  width: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
 }
 
-h2 {
-  font-size: 2rem;
-  margin: 10px 0;
+.social-links {
+  margin: 1rem 0;
 }
 
 .social-links a {
-  color: #007bff;
+  color: var(--primary-color);
   text-decoration: none;
-  margin: 0 5px;
-}
-
-.about {
-  max-width: 600px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-#experience, #education, #blog {
-  max-width: 600px;
-  margin: auto;
-  padding: 50px 20px;
+  margin: 0 0.5rem;
+  font-weight: bold;
 }
 
 .job, .education-item {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
 }
 
-.blog-list {
-  list-style: none;
-  padding: 0;
+.job:last-child, .education-item:last-child {
+  border-bottom: none;
 }
 
-.blog-list li {
-  padding: 10px 0;
+ul {
+  padding-left: 1.5rem;
 }
 
-.blog-list a {
-  color: #007bff;
+#skills ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#skills li {
+  margin-bottom: 0.5rem;
+}
+
+#blog ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#blog li {
+  margin-bottom: 1rem;
+}
+
+#blog a {
+  color: var(--primary-color);
   text-decoration: none;
+  font-weight: bold;
 }
 
 footer {
-  text-align: center;
-  padding: 20px;
   background-color: var(--footer-background);
   color: var(--footer-text-color);
-  margin-top: 30px;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+  }
+
+  .nav-links a, .theme-toggle {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+}
+/* Existing styles... */
+
+/* Dark theme styles */
+body.dark-theme {
+  --background-color: #1a1a1a;
+  --text-color: #f4f4f4;
+  --header-background: #2c2c2c;
+  --footer-background: #2c2c2c;
+  --footer-text-color: #f4f4f4;
+  --primary-color: #4da6ff;
+  --secondary-color: #a6c9e2;
+}
+
+body.dark-theme {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark-theme header {
+  background-color: var(--header-background);
+}
+
+body.dark-theme section {
+  background-color: #2c2c2c;
+  box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+
+body.dark-theme .job, 
+body.dark-theme .education-item {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-theme .social-links a,
+body.dark-theme #blog a {
+  color: var(--primary-color);
+}
+
+body.dark-theme footer {
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+}
+
+/* Transition for smooth theme change */
+body, header, section, .job, .education-item, .social-links a, #blog a, footer {
+  transition: all 0.3s ease;
 }
